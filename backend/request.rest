@@ -1,0 +1,26 @@
+### Get All Product
+GET http://localhost:5000/products
+
+### Get Product By Id
+GET http://localhost:5000/products/3
+
+### Create Product
+POST  http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name":"Product 3",
+    "price":5000
+}
+
+### Update Product
+PATCH   http://localhost:5000/products/3
+Content-Type: application/json
+
+{
+    "name":"Product 3 Product update",
+    "price":6000
+}
+
+### Delete Product
+DELETE    http://localhost:5000/products/3

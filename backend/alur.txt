@@ -1,0 +1,48 @@
+1. npm init -y
+2. npm i express cors dotenv
+3. npm i -D prisma
+4. npm i @prisma/client
+5. npx prisma init
+6. DEFAULT .env
+    [DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"] 
+7. GANTI .env
+    [DATABASE_URL="mysql://root:@localhost:3306/db_express_prisma"]
+
+8. EDIT schema.prisma (untuk membuat table )
+    [
+                    // This is your Prisma schema file,
+            // learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+            generator client {
+            provider = "prisma-client-js"
+            }
+
+            datasource db {
+            provider = "mysql"
+            url      = env("DATABASE_URL")
+            }
+
+            // Example tambah table product
+            model Product {
+            id        Int      @id @default(autoincrement())
+            name      String
+            price     Int
+            createdAt DateTime @default(now())
+            }
+
+    ]
+
+9. MEMBUAT MIGRATE 
+    npx prisma migrate dev
+
+10. TAMBAHKAN PADA PACKAGE.JSON 
+      "type": "module",
+
+11. INSTALL NODEMON
+    [UNTUK GLOBAL INSTALLER]
+    npm install -g nodemon 
+    [UNTUK DEPENDENCY INSTALLER]
+    npm install --save-dev nodemon
+
+12. JALANKAN PROJECT
+    nodemon index
